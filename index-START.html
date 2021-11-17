@@ -38,26 +38,23 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
     // --------------------------------------|| Filter ||-------------------------------------------------------
-    // let filterResult = inventors.filter(function(invertor) {
-    //   if (invertor['year'] >= 1500 && invertor['year'] <= 1600) {
-    //     return true
-    //   }
-    // })
-    // console.table(filterResult)
+    let filterResult = inventors.filter(invertor => invertor['year'] >= 1500 && invertor['year'] <= 1600) 
+    console.table(filterResult)
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
     // --------------------------------------|| Map ||-------------------------------------------------------
 
-    // let mapResult = inventors.map(invertor => invertor.first + " " + invertor.last)
-    // console.log(mapResult)
-    // Array.prototype.sort()
-
+    let mapResult = inventors.map(invertor => invertor.first + " " + invertor.last)
+    console.log(mapResult)
+    
     // --------------------------------------|| Sort ||-------------------------------------------------------
     // 3. Sort the inventors by birthdate, oldest to youngest
-    // let sortResult =  inventors.sort((a,b) => (a.year > b.year) ? 1 : ((b.year > a.year) ? -1 : 0));
-    // console.log(sortResult)
 
+    Array.prototype.sort()
+    let sortResult = inventors.sort((a,b) => (a.year > b.year) ? 1 : ((b.year > a.year) ? -1 : 0));
+    console.log(sortResult)
+    
 
     // --------------------------------------|| Reduce ||-------------------------------------------------------
     // Array.prototype.reduce()
@@ -67,12 +64,20 @@
 
     // 5. Sort the inventors by years lived
     // --------------------------------------|| Sort by years lived ||-------------------------------------------------------
-    let sortAgeResult =  Age.sort((a,b) => (a.Age > b.Age) ? 1 : ((b.Age > a.Age) ? -1 : 0));
-    console.log(sortAgeResult);
+    let sortAgeResult =  inventors.sort((a,b) => (a.passed > b.year) ? 1 : ((b.passed > a.year) ? -1 : 0));
+    console.table(sortAgeResult);
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    let links = Array.from(document.querySelectorAll(".mw-category a")) // we have to put all the values inside Array[] to make it works, to do that we can use `Array.from()`
+    let getLinkTitle = links.map(link => link.innerHTML) // map to get only the name of the link
+                       .filter(link => link.includes("de")) // filter to keep only the names that includes "de"
 
 
+    console.log(getLinkTitle)
+
+    let linksFilter = links.filter(link => link.includes("de"))
+    console.log(linksFilter)
+    
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
